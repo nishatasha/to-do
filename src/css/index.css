@@ -1,0 +1,221 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  background-color: #f0f4f7;
+  background-image: url('../image/img.jpeg'); /* Adjust path as needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+h1, h2, p {
+  color: #000;
+  text-align: center;
+}
+
+button {
+  display: block;
+  padding: 10px 20px;
+  font-size: 20px;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Container for the whole app */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  background-color: #f0f4f7;
+  background-image: url('../image/img.jpeg'); /* Adjust path as needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.app-wrapper {
+  position: relative;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  margin-top: 70px;
+}
+
+.content-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+/* Header styles */
+header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.heading h1 {
+  font-size: 44px;
+  color: #454040;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin: 0;
+  color: #333;
+}
+
+/* Form styles */
+form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 90px;
+  text-align: center;
+  align-items: center;
+  width: 100%; 
+}
+
+.task-input {
+  width: 60%;
+  padding: 10px;
+  border: 2px solid #f6f5f5;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 1.4em;
+}
+
+.button-add {
+  padding: 11px 30px;
+  border: none;
+  background-color: rgb(170, 25, 243);
+  color: #fff;
+  border-radius: 5px;
+  font-size: 1.4em;
+}
+
+.button-add:hover {
+  background-color: rgb(143, 20, 205);
+}
+
+/* Grid container for tasks */
+.task-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* Individual task item */
+.task-list {
+  background-color: #fff;
+  border: 1px solid #fdf9f9;
+  border-radius: 5px;
+  padding: 10px;
+  width: 260px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid rgb(170, 25, 243);
+  font-size: 1.2em;
+  transition: border-left 0.3s ease-in-out;
+}
+
+.task-list.checked {
+  border-left: 4px solid #4cd251;
+}
+
+.fa-square-check {
+  color: #b1aeae;
+  font-size: 15px;
+}
+
+.fa-square-check.checked {
+  color: #4cd251;
+}
+
+.fa-square-check:hover {
+  color: #4cd251;
+}
+
+.task-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-name, .task-timing {
+  margin: 0;
+  text-align: left;
+}
+
+/* Buttons for task actions */
+.task-buttons {
+  display: flex;
+  align-items: right;
+  justify-content: flex-end;
+  margin-left: 38px;
+}
+
+.task-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 5px;
+  color: #b1aeae;
+  font-size: 14px;
+}
+
+.task-button.edit i {
+  color: #4cd251;
+}
+
+.task-button.delete i {
+  color: #f44336;
+}
+
+.task-button:hover i {
+  transform: scale(1.1);
+}
+
+.fa-trash {
+  display: block;
+  transition: all 0.2s ease-in-out;
+}
+
+.fa-trash:hover {
+  color: #e52a15;
+}
+
+.fa-pen {
+  display: flex;
+  transition: all 0.2s ease-in-out;
+}
+
+.fa-pen:hover {
+  color: #444343;
+}
+
+.task-timing {
+  color: #888;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
