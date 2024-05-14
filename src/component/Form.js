@@ -1,30 +1,57 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { v4 as uuidV4 } from 'uuid';
 
-const Form = ({ input, setInput, tasks, setTasks, editTask, setEditTask }) => {
-  const updateTask = (title, id, completed) => {
-    const newTasks = tasks.map(task =>
-      task.id === id ? { ...task, title, completed } : task
-    );
-    setTasks(newTasks);
-    setEditTask(null);
-  };
+const initialState = {
+  input: "",
+};
+
+const formReducer = (state, action) => {
+  switch (action.type) {
+    case 'SET_INPUT':
+      return { ...state, input: action.payload };
+    case 'RESET_INPUT':
+      return { ...state, input: "" };
+    default:
+      return state;
+  }
+};
+
+const Form = ({ dispatch, editTask }) => {
+  const [state, formDispatch] = useReducer(formReducer, initialState);
 
   useEffect(() => {
-    setInput(editTask ? editTask.title : "");
-  }, [editTask, setInput]);
+    if (editTask) {
+      formDispatch({ type: 'SET_INPUT', payload: editTask.title });
+    } else {
+      formDispatch({ type: 'RESET_INPUT' });
+    }
+  }, [editTask]);
 
   const inputChange = (e) => {
-    setInput(e.target.value);
+    formDispatch({ type: 'SET_INPUT', payload: e.target.value });
   };
 
   const formSubmit = (e) => {
     e.preventDefault();
     if (!editTask) {
-      setTasks([...tasks, { id: uuidV4(), title: input, completed: false, createdTime: new Date().toISOString() }]);
-      setInput("");
+      dispatch({
+        type: 'ADD_TASK',
+        payload: {
+          id: uuidV4(),
+          title: state.input,
+          isChecked: false,
+          createdTime: new Date().toISOString()
+        }
+      });
+      formDispatch({ type: 'RESET_INPUT' });
     } else {
-      updateTask(input, editTask.id, editTask.completed);
+      dispatch({
+        type: 'UPDATE_TASK',
+        payload: {
+          id: editTask.id,
+          title: state.input
+        }
+      });
     }
   };
 
@@ -34,11 +61,14 @@ const Form = ({ input, setInput, tasks, setTasks, editTask, setEditTask }) => {
         type="text"
         placeholder="Enter task"
         className="task-input"
-        value={input}
+        value={state.input}
         required
         onChange={inputChange}
       />
-      <button className='button-add' type="submit">{editTask ? "Update" : "Add"}</button>
+      <button
+        className='button-add'
+        type="submit">{editTask ? "Update" : "Add"}
+      </button>
     </form>
   );
 };

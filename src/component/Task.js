@@ -1,26 +1,29 @@
+
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faSquareCheck } from '@fortawesome/free-regular-svg-icons';
 
-const Task = ({ tasks, setTasks, setEditTask }) => {
+const Task = ({ tasks, dispatch }) => {
   const handleDelete = (id) => {
-    setTasks(tasks.filter(task => task.id !== id));
+    dispatch({ type: 'DELETE_TASK', payload: id });
   };
 
   const handleEdit = (task) => {
-    setEditTask(task);
+    dispatch({ type: 'SET_EDIT_TASK', payload: task });
   };
 
   const handleCheck = (id) => {
-    const updatedTasks = tasks.map(task =>
-      task.id === id ? { ...task, isChecked: !task.isChecked } : task
-    );
-    setTasks(updatedTasks);
+    dispatch({ type: 'TOGGLE_COMPLETE', payload: id });
   };
 
   const formatTime = (timeString) => {
-    const options = { month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+    const options = {
+      month: 'short',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric'
+    };
     return new Date(timeString).toLocaleString('en-US', options);
   };
 
