@@ -103,13 +103,14 @@ form {
   background-color: rgb(170, 25, 243);
   color: #fff;
   border-radius: 5px;
-  font-size: 1.4em;
+  font-size: 1.2em;
+  text-transform: uppercase;
   position: absolute;
   top: 0;
   right: 0;
   height: 100%;
   border-radius: 2px;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .button-add:hover {
