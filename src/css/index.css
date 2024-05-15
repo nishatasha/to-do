@@ -40,7 +40,6 @@ button {
   height: 100vh;
   background-color: #f0f4f7;
   background-image: url('../image/img.jpeg');
-  /* Adjust path as needed */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -70,7 +69,7 @@ header {
 .heading h1 {
   font-size: 44px;
   color: #191818;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 header h1 {
@@ -139,20 +138,6 @@ form {
   border-left: 4px solid #4cd251;
 }
 
-.fa-square-check {
-  color: #b1aeae;
-  font-size: 15px;
-  padding: 0;
-  margin: 0;
-}
-
-.fa-square-check.checked {
-  color: #4cd251;
-}
-
-.fa-square-check:hover {
-  color: #4cd251;
-}
 
 .task-details {
   display: flex;
@@ -176,7 +161,7 @@ form {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-left: 38px;
+  margin-left: 35px;
 }
 
 .task-button {
@@ -223,6 +208,21 @@ form {
   color: #888;
   font-size: 0.8em;
   margin-top: 5px;
+}
+
+.fa-square-check {
+  color: #b1aeae;
+  font-size: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+.fa-square-check.checked {
+  color: #4cd251;
+}
+
+.fa-square-check:hover {
+  color: #4cd251;
 }
 
 .save,
