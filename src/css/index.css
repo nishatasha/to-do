@@ -104,6 +104,12 @@ form {
   color: #fff;
   border-radius: 5px;
   font-size: 1.4em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  border-radius: 2px;
+  font-weight: 700;
 }
 
 .button-add:hover {
@@ -293,12 +299,4 @@ form {
 .task-input {
   width: calc(100% - 10px);
   padding-right: 120px;
-}
-
-.button-add {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  border-radius: 2px;
 }
