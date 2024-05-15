@@ -57,18 +57,20 @@ const Form = ({ dispatch, editTask }) => {
 
   return (
     <form onSubmit={formSubmit} className="input-group">
-      <input
-        type="text"
-        placeholder="Enter task"
-        className="task-input"
-        value={state.input}
-        required
-        onChange={inputChange}
-      />
-      <button
-        className='button-add'
-        type="submit">{editTask ? "Update" : "Add"}
-      </button>
+      <div className="input-container">
+        <input
+          type="text"
+          placeholder="Enter task"
+          className="task-input"
+          value={state.input}
+          required
+          onChange={inputChange}
+        />
+        <button
+          className='button-add'
+          type="submit">{editTask ? "Update" : "Add"}
+        </button>
+      </div>
     </form>
   );
 };
